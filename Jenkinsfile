@@ -28,7 +28,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh './deploy production'
+                sh 'curl "https://trabalho-jenkins.vercel.app"'
             }
         }
     }
