@@ -2,9 +2,14 @@
 pipeline {
     agent any
     stages {
-        stage('Test and Coverage') {
+        stage('Test') {
             steps {
-                sh 'pytest -v --cov'
+                sh 'pytest -v'
+            }
+        }
+        stage('Coverage') {
+            steps {
+                sh 'pytest --cov'
             }
         }
          stage('Build') {
