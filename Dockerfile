@@ -9,5 +9,5 @@ RUN git clone https://github.com/sironark/trabalho_jenkins.git
 RUN git config --global user.email "gabriel_lopeslomeu@hotmail.com"
 RUN git config --global user.name "sironark"
 WORKDIR /home/trabalho_jenkins
-CMD ["./Jankinsfile", "build"]
+CMD ["./Jenkinsfile", "build"]
 
