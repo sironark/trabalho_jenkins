@@ -1,24 +1,10 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
-     options {
-        skipStagesAfterUnstable()
-    }
+    agent { docker { image 'node:18.17.1-alpine3.18' } }
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
-            }
-        }
-        stage('Test'){
+        stage('Test and Coverage') {
             steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make publish'
+                sh 'pytest -v --cov'
             }
         }
     }
